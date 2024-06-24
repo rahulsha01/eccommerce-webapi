@@ -8,7 +8,7 @@ module.exports = connection = async () => {
             useCreateIndex: true
         };
         await mongoose.connect(process.env.MONGODB_URI, connectionParams);
-        console.log("connected to database.");
+        console.log("connected to Mongo DB.");
     } catch (error) {
         console.log(error, "could not connect database.");
     }

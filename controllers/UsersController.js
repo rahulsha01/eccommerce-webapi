@@ -1,17 +1,14 @@
 const UserObject = require('../models/UsersModel');
 const response = require('../services/responseType');
-const bcrypt = require('bcryptjs');
-var jwt = require('jsonwebtoken');
-const base64 = require('base64url');
+const { bcrypt ,  jwt,  base64,moment,env} = require('../utility/constant')
+
+
 // const BusinessInfoObject = require('../models/BusinessDetails');
+
 // const UserAddressDetails = require('../models/UserAddress');
-const moment = require('moment');
-require('dotenv').config();
-const machineId = require('node-machine-id');
 
 module.exports = {
     user_create: async (req, res, next) => {
-        console.log(req.body);
         const checkUserData = await UserObject.findOne({ $or: [{ email: req.body.email }, { contact: req.body.phoneNumber }] }, function (err, result) {
             if (err) {
                 res.send(err);
@@ -51,9 +48,7 @@ module.exports = {
         });
     },
     userLogin: async (req, res, next) => {
-        console.log(req.body);
         var email = req.body.email;
-        console.log("test",email);
         const isUserLogin = await UserObject.findOne({ email: email });
         console.log(isUserLogin);
         if (isUserLogin != null) {

@@ -1,4 +1,4 @@
-const router = require('express-promise-router')();
+const {router} = require('../utility/constant')
 var verifyToken = require('../services/auth');
 // Require the controllers WHICH WE DID NOT CREATE YET!!
 const user_controller = require('../controllers/UsersController');

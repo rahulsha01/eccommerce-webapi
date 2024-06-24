@@ -5,6 +5,7 @@ const connection = require('./config/mongoDB');
 const app = express();
 var cors = require('cors');
 const user = require('./routes/user_routes');
+const category = require('./routes/category_routes');
 app.use(cors());
 connection();
 app.use(express.json());
@@ -15,6 +16,7 @@ Routes Start
 */
 
 app.use('/user', user);
+app.use('/category', category);
 
 /*
 Route End
