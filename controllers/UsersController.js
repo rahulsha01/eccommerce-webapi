@@ -44,6 +44,12 @@ module.exports = {
             res.json(response.getResponseType(true, "User already Exits", "", "", 409));
         }
     },
+    updateUser: async (req, res, next) => {
+        UserObject.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, user) {
+            if (err) return next(err);
+            res.json(response.getResponseType(true ,"Record Update Succesffuly." , req.params.id));
+        });
+    },
     userLogin: async (req, res, next) => {
         console.log(req.body);
         var email = req.body.email;
@@ -63,7 +69,7 @@ module.exports = {
                 );
                 res.json(response.getResponseType('success', "User Successfully Login", isUserLogin, token, 200));
             } else {
-                res.json(response.getResponseType('failed', "U ", [], 204));
+                res.json(response.getResponseType('failed', "Username or Password is wrong! ", [], 204));
             }
         } else {
             res.json(response.getResponseType('failed', "Username or Password is wrong!", [], 204))

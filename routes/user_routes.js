@@ -5,6 +5,7 @@ const user_controller = require('../controllers/UsersController');
 
 // a simple test url to check that all of our files are communicating correctly.
 router.post('/create',  user_controller.user_create);
+router.put('/:id/update', verifyToken , user_controller.updateUser);
 // router.post('/addUserDetails', verifyToken , user_controller.create_bussinessDetails);
 router.post('/addUserAddress', verifyToken, user_controller.create_AddressDetails);
 router.get('/getUserDetails/:id', verifyToken, user_controller.getUserFullDetails);
