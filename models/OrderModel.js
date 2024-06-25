@@ -1,5 +1,4 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const {Schema } = require('../utility/constant')
 
 var Orders = new Schema({
      category_id  : { type: String, required: true, max: 36  },

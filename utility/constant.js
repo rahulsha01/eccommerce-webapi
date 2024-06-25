@@ -5,6 +5,8 @@ const moment = require('moment')
 const env = require('dotenv').config()
 const MUUID = require('uuid-mongodb');
 const router = require('express-promise-router')();
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 module.exports = {
     bcrypt,
@@ -13,5 +15,7 @@ module.exports = {
     moment,
     env,
     MUUID,
-    router
+    router,
+    Schema,
+    mongoose
 }
