@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const { Schema , mongoose } = require('../utility/constant');
 
 let Users = new Schema({
     userId : {type: String, id : true ,  index : true },

@@ -1,6 +1,6 @@
-const {Schema , mongoose } = require('../utility/constant')
+const {Schema } = require('../utility/constant')
 
-var Category = new Schema({
+var Orders = new Schema({
      category_id  : { type: String, required: true, max: 36  },
      category_name : { type: String, required: true, max: 30  },
      category_desc : { type: String, required: true, max: 300 },
@@ -9,4 +9,4 @@ var Category = new Schema({
 });
 
 // Export the model
-module.exports = mongoose.model("categories", Category);
+module.exports = mongoose.model("orders", Orders);
